@@ -4,6 +4,12 @@ import { GestureResponderEvent } from 'react-native'
 interface IProps {
     switchOn: boolean;
     onPress: (event: GestureResponderEvent) => {};
+    circleIcon: any,
+    circleIconStyle: any,
+    rightIcon: any,
+    rightIconStyle: any,
+    leftIcon: any,
+    leftIconStyle: any,
     containerStyle?: object;
     circleStyle?: object;
     backgroundColorOn?: string;
@@ -21,7 +27,7 @@ interface IProps {
     buttonStyle?: any,
     buttonContainerStyle?: any,
     rightContainerStyle?: any,
-    leftContainerStyle?: any
+    leftContainerStyle?: any,
 }
 
 declare class SwitchToggle extends React.Component<IProps, any> {
