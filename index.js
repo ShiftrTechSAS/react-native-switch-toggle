@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Animated, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { Animated, StyleSheet, Text, TouchableOpacity, Image } from 'react-native';
 
 import PropTypes from 'prop-types';
 
@@ -37,6 +37,12 @@ class Item extends Component {
     backgroundColorOn: PropTypes.string,
     circleColorOff: PropTypes.string,
     circleColorOn: PropTypes.string,
+    circleIcon: PropTypes.any,
+    circleIconStyle: PropTypes.any,
+    rightIcon: PropTypes.any,
+    rightIconStyle: PropTypes.any,
+    leftIcon: PropTypes.any,
+    leftIconStyle: PropTypes.any,
     duration: PropTypes.number,
     type: PropTypes.number,
 
@@ -90,7 +96,7 @@ class Item extends Component {
   }
 
   render() {
-    return (
+      return (
       <TouchableOpacity
         onPress={this.onPress}
         activeOpacity={0.5}
@@ -109,6 +115,9 @@ class Item extends Component {
         >
           {
             this.generateLeftText()
+          }
+          {
+            this.generateRightText()
           }
           <Animated.View
             style={[
@@ -132,12 +141,9 @@ class Item extends Component {
               this.props.buttonStyle,
             ]}>
             <Animated.View style={this.props.buttonContainerStyle}>
-              <Text style={this.props.buttonTextStyle}>{this.props.buttonText}</Text>
+              <Image source={this.props.circleIcon} style={this.props.circleIconStyle} />
             </Animated.View>
-          </Animated.View>
-          {
-            this.generateRightText()
-          }
+          </Animated.View>          
         </Animated.View>
       </TouchableOpacity>
     );
@@ -146,7 +152,7 @@ class Item extends Component {
   generateRightText() {
     return (
       <Animated.View style={this.props.rightContainerStyle}>
-        <Text style={this.props.textRightStyle}>{this.props.backTextRight}</Text>
+        <Image source={this.props.rightIcon} style={this.props.rightIconStyle} />
       </Animated.View>
     );
   }
@@ -154,7 +160,7 @@ class Item extends Component {
   generateLeftText() {
     return (
       <Animated.View style={this.props.leftContainerStyle}>
-        <Text style={this.props.textLeftStyle}>{this.props.backTextLeft}</Text>
+        <Image source={this.props.leftIcon} style={this.props.leftIconStyle} />
       </Animated.View>
     );
   }
