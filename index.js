@@ -100,6 +100,7 @@ class Item extends Component {
       <TouchableOpacity
         onPress={this.onPress}
         activeOpacity={0.5}
+        style={styles.containerTouch}
       >
         <Animated.View
           style={[
@@ -167,6 +168,9 @@ class Item extends Component {
 }
 
 const styles: any = StyleSheet.create({
+  containerTouch: {
+    paddingVertical: 30
+  },
   container: {
     flexDirection: 'row',
     alignItems: 'center',
